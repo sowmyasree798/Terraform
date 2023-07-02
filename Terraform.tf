@@ -1,13 +1,16 @@
 provider "aws" {
-region="ap-south-1"
+  region     = "ap-south-1"
+  access_key = "AKIA57WCDEI77A3VC6HR"
+  secret_key = "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"
 }
 
-resource "instance-type" "AwsExample" {
-ami= "ami-06b09bfacae1453cb"
-instance_type="t2.micro"
-key_name="linuxkeypair"
-security_groups=["default"]
-tags= {
-Name="New Instance"
+resource "aws_instance" "AWSServer" {
+  ami             = "ami-06b09bfacae1453cb"
+  instance_type   = "t2.micro"
+  key_name        = "ashokitnewkey"
+  security_groups = ["default"]
+  tags = {
+    Name = "MyEC2-VM"
+  }
 }
-}
+
